@@ -1,20 +1,163 @@
-<body style="background-color:#e0f7fa; font-family:sans-serif; margin:0; padding:0; min-height:100vh;">
-	<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh;">
-		<h1 style="color:#00796b; margin-top:40px;">Selamat Datang</h1>
-		<table border="1" cellpadding="10" style="margin:30px 0; border-collapse:collapse; background:#fff;">
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-		</table>
-		<div style="margin-bottom:40px;">
-			<a href="profile.html" style="margin-right:20px; color:#0288d1; text-decoration:none; font-weight:bold;">Menu Profile</a>
-			<a href="about.html" style="margin-right:20px; color:#0288d1; text-decoration:none; font-weight:bold;">Menu About</a>
-            <a href="formulir.html" style="margin-right:20px; color:#0288d1; text-decoration:none; font-weight:bold;">Menu Formulir</a>
-		</div>
-	</div>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daftar Makanan — </title>
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Small custom styles */
+    .card-img { height: 160px; object-fit: cover; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-400 rounded-md flex items-center justify-center font-bold">M</div>
+        <div>
+          <h1 class="text-lg font-semibold">Menu Makanan</h1>
+          <p class="text-sm text-gray-500">Temukan makanan favoritmu</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex gap-4 items-center">
+        <a href="#" class="text-sm hover:text-amber-600">Beranda</a>
+        <a href="#menu" class="text-sm hover:text-amber-600">Daftar Makanan</a>
+        <a href="profile.html" class="text-sm hover:text-amber-600">Kontak</a>
+		 <a href="about.html" class="text-sm hover:text-amber-600">About</a>
+      </nav>
+
+      <button id="mobile-toggle" class="md:hidden p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero / Search & Filters -->
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-xl shadow p-6">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <div class="flex-1">
+          <label class="block text-sm text-gray-600">Cari makanan</label>
+          <input id="search" type="text" placeholder="Ketik nama makanan..." class="mt-1 w-full rounded-md border-gray-200 shadow-sm focus:ring-amber-300 focus:border-amber-300" />
+        </div>
+
+        <div class="w-full md:w-48">
+          <label class="block text-sm text-gray-600">Kategori</label>
+          <select id="category" class="mt-1 w-full rounded-md border-gray-200 shadow-sm">
+            <option value="all">Semua</option>
+            <option value="sarapan">Sarapan</option>
+            <option value="makan-siang">Makan Siang</option>
+            <option value="camilan">Camilan</option>
+            <option value="minuman">Minuman</option>
+          </select>
+        </div>
+
+        <div class="flex items-end gap-2">
+          <button id="clear" class="px-4 py-2 bg-gray-100 rounded-md text-sm">Bersihkan</button>
+          <button id="searchBtn" class="px-4 py-2 bg-amber-500 text-white rounded-md text-sm">Cari</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Grid -->
+  <main id="menu" class="max-w-6xl mx-auto px-4 pb-16">
+    <div id="items" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t py-6 mt-8">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-gray-600">
+    </div>
+  </footer>
+
+
+  <script>
+
+    const data = [
+      { id:1, name:'Nasi Goreng Spesial', category:'makan-siang', price:25000, desc:'Nasi goreng dengan telur, ayam suwir, dan acar.', img:'/Makanan/Nasgor.png' },
+      { id:2, name:'Mie Ayam Pangsit', category:'makan-siang', price:20000, desc:'Mie ayam dengan bakso dan pangsit goreng.', img:'/Makanan/mieayam.jpg' },
+      { id:3, name:'Roti Bakar Coklat', category:'sarapan', price:15000, desc:'Roti bakar isi coklat dan keju.', img:'/Makanan/roti%20bakar.png' },
+    { id:4, name:'Cireng Isi Keju', category:'camilan', price:12000, desc:'Cireng dengan isian keju leleh.', img:'../Makanan/cirsi.jpg' },
+    { id:5, name:'Es Teh Manis', category:'minuman', price:7000, desc:'Es teh manis segar.', img:'../Makanan/esteh.png' },
+    { id:6, name:'Pisang Goreng', category:'camilan', price:10000, desc:'Pisang goreng renyah dengan gula.', img:'../Makanan/pisgor.png' },
+    { id:7, name:'Soto Ayam', category:'makan-siang', price:22000, desc:'Soto ayam bening dengan koya.', img:'../Makanan/soto%20ayam.png' },
+    { id:8, name:'Kopi Susu', category:'minuman', price:12000, desc:'Kopi susu kekinian.', img:'../Makanan/kopi.png' }
+    ];
+
+    // State
+    let sortAsc = true;
+
+    // Utilities
+    function formatRupiah(n){
+      return 'Rp ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    // Render function
+    function renderList(list){
+      const container = document.getElementById('items');
+      container.innerHTML = '';
+      if(list.length === 0){
+        container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">Tidak ada item ditemukan.</div>';
+        return;
+      }
+      list.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-xl shadow overflow-hidden';
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" class="w-full card-img">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">${item.name}</h3>
+            <p class="text-sm text-gray-500 mt-1">${item.desc}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Filter + Search
+    function applyFilters(){
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const cat = document.getElementById('category').value;
+
+      let list = data.filter(it => {
+        const matchQuery = it.name.toLowerCase().includes(q) || it.desc.toLowerCase().includes(q);
+        const matchCat = (cat === 'all') ? true : (it.category === cat);
+        return matchQuery && matchCat;
+      });
+
+      // sort by price
+      list.sort((a,b)=> sortAsc ? a.price - b.price : b.price - a.price);
+
+      renderList(list);
+    }
+
+    // Event bindings
+    document.getElementById('search').addEventListener('input', applyFilters);
+    document.getElementById('category').addEventListener('change', applyFilters);
+    document.getElementById('clear').addEventListener('click', ()=>{
+      document.getElementById('search').value = '';
+      document.getElementById('category').value = 'all';
+      applyFilters();
+    });
+
+    document.getElementById('searchBtn').addEventListener('click', ()=>{
+      applyFilters();
+    });
+
+    // Mobile nav toggle (simple)
+    document.getElementById('mobile-toggle').addEventListener('click', ()=>{
+      alert('Tambahkan menu mobile di sini jika diperlukan.');
+    });
+
+    // Initial render
+    applyFilters();
+
+  </script>
 </body>
+</html>
