@@ -1,0 +1,45 @@
+
+<h1>Pendaftaran Pelatihan Web Menggunakan Node JS dan React</h1>
+<p>Silakan isi formulir di bawah ini untuk mendaftar.</p>
+
+<form>
+	<fieldset style="margin-bottom:20px;">
+		<legend><b>Data Diri Peserta</b></legend>
+		<label>Nama Lengkap:<br>
+			<input type="text" name="nama" style="width:300px;">
+		</label><br><br>
+		<label>Email:<br>
+			<input type="email" name="email" style="width:300px;">
+		</label><br><br>
+		<label>Nomor Telepon (WhatsApp):<br>
+			<input type="text" name="telepon" style="width:300px;">
+		</label><br><br>
+		<label>Jenis Kelamin:</label><br>
+		<input type="radio" name="gender" value="pria"> Pria
+		<input type="radio" name="gender" value="wanita"> Wanita
+	</fieldset>
+
+	<fieldset style="margin-bottom:20px;">
+		<legend><b>Pilihan Pelatihan</b></legend>
+		<label>Pilih Sesi Pelatihan:<br>
+			<select name="sesi">
+				<option>-- Pilih Salah Satu --</option>
+				<option>Sesi 1</option>
+				<option>Sesi 2</option>
+				<option>Sesi 3</option>
+			</select>
+		</label><br><br>
+		<label>Sumber Informasi (Boleh pilih lebih dari satu):<br>
+			<input type="checkbox" name="info" value="sosmed"> Media Sosial<br>
+			<input type="checkbox" name="info" value="teman"> Rekomendasi Teman<br>
+			<input type="checkbox" name="info" value="iklan"> Iklan Online<br>
+		</label>
+	</fieldset>
+
+	<label>Catatan Tambahan (Opsional):<br>
+		<textarea name="catatan" rows="3" style="width:98%;"></textarea>
+	</label><br><br>
+
+	<button type="submit">Daftar Sekarang</button>
+	<button type="reset">Bersihkan Formulir</button>
+</form>
