@@ -121,17 +121,12 @@
         const matchCat = (cat === 'all') ? true : (it.category === cat);
         return matchQuery && matchCat;
       });
-
-      // sort by price
-      list.sort((a,b)=> sortAsc ? a.price - b.price : b.price - a.price);
-
       renderList(list);
     }
 
     // Event bindings
     const searchInput = document.getElementById('search');
     searchInput.addEventListener('input', applyFilters);
-    // trigger search when user presses Enter
     searchInput.addEventListener('keydown', (e)=>{
       if(e.key === 'Enter'){
         e.preventDefault();
@@ -149,12 +144,6 @@
       e.preventDefault();
       applyFilters();
     });
-
-    // Mobile nav toggle (simple)
-    document.getElementById('mobile-toggle').addEventListener('click', ()=>{
-      alert('Tambahkan menu mobile di sini jika diperlukan.');
-    });
-
     // Initial render
     applyFilters();
 
