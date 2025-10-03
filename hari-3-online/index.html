@@ -3,13 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Daftar Makanan — </title>
-  <!-- Tailwind CDN for quick styling -->
+  <title>Daftar Makanan </title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Small custom styles */
-    .card-img { height: 160px; object-fit: cover; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
@@ -80,23 +76,18 @@
   <script>
 
     const data = [
-      { id:1, name:'Nasi Goreng Spesial', category:'makan-siang', price:25000, desc:'Nasi goreng dengan telur, ayam suwir, dan acar.', img:'/Makanan/Nasgor.png' },
-      { id:2, name:'Mie Ayam Pangsit', category:'makan-siang', price:20000, desc:'Mie ayam dengan bakso dan pangsit goreng.', img:'/Makanan/mieayam.jpg' },
-      { id:3, name:'Roti Bakar Coklat', category:'sarapan', price:15000, desc:'Roti bakar isi coklat dan keju.', img:'/Makanan/roti%20bakar.png' },
-    { id:4, name:'Cireng Isi Keju', category:'camilan', price:12000, desc:'Cireng dengan isian keju leleh.', img:'../Makanan/cirsi.jpg' },
-    { id:5, name:'Es Teh Manis', category:'minuman', price:7000, desc:'Es teh manis segar.', img:'../Makanan/esteh.png' },
-    { id:6, name:'Pisang Goreng', category:'camilan', price:10000, desc:'Pisang goreng renyah dengan gula.', img:'../Makanan/pisgor.png' },
-    { id:7, name:'Soto Ayam', category:'makan-siang', price:22000, desc:'Soto ayam bening dengan koya.', img:'../Makanan/soto%20ayam.png' },
-    { id:8, name:'Kopi Susu', category:'minuman', price:12000, desc:'Kopi susu kekinian.', img:'../Makanan/kopi.png' }
+      { id:1, name:'Nasi Goreng Spesial', category:'makan-siang',  img:'/Makanan/Nasgor.png' },
+      { id:2, name:'Mie Ayam Pangsit', category:'makan-siang',  img:'/Makanan/mieayam.jpg' },
+      { id:3, name:'Roti Bakar Coklat', category:'sarapan',  img:'/Makanan/roti%20bakar.png' },
+    { id:4, name:'Cireng Isi Keju', category:'camilan',  img:'../Makanan/cirsi.jpg' },
+    { id:5, name:'Es Teh Manis', category:'minuman',  img:'../Makanan/esteh.png' },
+    { id:6, name:'Pisang Goreng', category:'camilan',  img:'../Makanan/pisgor.png' },
+    { id:7, name:'Soto Ayam', category:'makan-siang',  img:'../Makanan/soto%20ayam.png' },
+    { id:8, name:'Kopi Susu', category:'minuman', img:'../Makanan/kopi.png' }
     ];
 
     // State
     let sortAsc = true;
-
-    // Utilities
-    function formatRupiah(n){
-      return 'Rp ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    }
 
     // Render function
     function renderList(list){
