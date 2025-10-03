@@ -53,8 +53,8 @@
         </div>
 
         <div class="flex items-end gap-2">
-          <button id="clear" class="px-4 py-2 bg-gray-100 rounded-md text-sm">Bersihkan</button>
-          <button id="searchBtn" class="px-4 py-2 bg-amber-500 text-white rounded-md text-sm">Cari</button>
+          <button id="clear" type="button" class="px-4 py-2 bg-gray-100 rounded-md text-sm">Bersihkan</button>
+          <button id="searchBtn" type="button" class="px-4 py-2 bg-amber-500 text-white rounded-md text-sm">Cari</button>
         </div>
       </div>
     </div>
@@ -76,9 +76,9 @@
   <script>
 
     const data = [
-      { id:1, name:'Nasi Goreng Spesial', category:'makan-siang',  img:'/Makanan/Nasgor.png' },
-      { id:2, name:'Mie Ayam Pangsit', category:'makan-siang',  img:'/Makanan/mieayam.jpg' },
-      { id:3, name:'Roti Bakar Coklat', category:'sarapan',  img:'/Makanan/roti%20bakar.png' },
+    { id:1, name:'Nasi Goreng Spesial', category:'makan-siang',  img:'/Makanan/Nasgor.png' },
+    { id:2, name:'Mie Ayam Pangsit', category:'makan-siang',  img:'/Makanan/mieayam.jpg' },
+    { id:3, name:'Roti Bakar Coklat', category:'sarapan',  img:'/Makanan/roti%20bakar.png' },
     { id:4, name:'Cireng Isi Keju', category:'camilan',  img:'../Makanan/cirsi.jpg' },
     { id:5, name:'Es Teh Manis', category:'minuman',  img:'../Makanan/esteh.png' },
     { id:6, name:'Pisang Goreng', category:'camilan',  img:'../Makanan/pisgor.png' },
@@ -129,7 +129,15 @@
     }
 
     // Event bindings
-    document.getElementById('search').addEventListener('input', applyFilters);
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', applyFilters);
+    // trigger search when user presses Enter
+    searchInput.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        applyFilters();
+      }
+    });
     document.getElementById('category').addEventListener('change', applyFilters);
     document.getElementById('clear').addEventListener('click', ()=>{
       document.getElementById('search').value = '';
@@ -137,7 +145,8 @@
       applyFilters();
     });
 
-    document.getElementById('searchBtn').addEventListener('click', ()=>{
+    document.getElementById('searchBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
       applyFilters();
     });
 
