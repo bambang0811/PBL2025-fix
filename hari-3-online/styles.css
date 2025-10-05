@@ -1,8 +1,6 @@
 
-/* Card image sizing */
 .card-img { height: 160px; object-fit: cover; }
 
-/* Header / navbar styling */
 header {
 	background: linear-gradient(90deg, #00bcd4 0%, #43e97b 100%);
 	color: #fff;
@@ -12,12 +10,10 @@ header h1, header p { color: #fff; }
 header nav a { color: rgba(255,255,255,0.95); }
 header nav a:hover { color: #222; text-decoration: underline; }
 
-/* Hero / search container */
 .max-w-6xl > .bg-white {
 	padding: 28px;
 }
 
-/* Section title */
 .section-title {
 	text-align: center;
 	font-size: 1.25rem;
@@ -26,24 +22,21 @@ header nav a:hover { color: #222; text-decoration: underline; }
 	margin: 36px 0 18px 0;
 }
 
-/* Card look (additional polish on top of Tailwind) */
 .card { border-radius: 12px; overflow: hidden; }
 .card .p-4 { padding: 16px; }
 .bg-white.rounded-xl.shadow { transition: transform .18s ease, box-shadow .18s ease; }
 .bg-white.rounded-xl.shadow:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.08); }
 
-/* Empty state */
+
 .no-items { padding: 48px 0; color: #6b7280; }
 
-/* Responsive tweaks */
+
 @media (max-width: 640px) {
 	.card-img { height: 140px; }
 	header { padding: 12px 8px; }
 }
 
-/* Utility to highlight search when result empty */
 .search-empty { box-shadow: 0 0 0 3px rgba(255,99,71,0.08); }
 
-/* Notes: Tailwind classes still apply. Put more rules here as needed. */
 
 
